@@ -1,0 +1,9 @@
+<div>
+    <h3>Create a new note</h3>
+    <p>errors: {{ noteBodyErr?.errors | json }} </p>
+    <form (submit)="insert(formData)" #formData="ngForm">
+        <label for="noteBody">Note:</label>
+        <input type="text" name="noteBody" required minlength="4" maxlength="200" [(ngModel)]="newNote.noteBody" #noteBodyErr="ngModel">
+        <button type="submit" [disabled]="!formData.form.valid">Submit</button> >
+    </form>
+</div>

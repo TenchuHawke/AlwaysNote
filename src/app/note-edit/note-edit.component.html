@@ -1,0 +1,10 @@
+<br> errors: {{ noteBodyEditErr?.errors | json }}<br>
+
+<form (submit)="submitChange()" #formData="ngForm">
+    <label for="noteBody">Note:</label>
+    <input type="text" name="noteBody" required minlength="4" maxlength="200" [(ngModel)]="newNote.noteBody" #noteBodyEditErr="ngModel">
+    <button type=" submit " [disabled]="!formData.form.valid ">Submit</button>
+</form>
+<br>
+<button (click)="cancel()">Cancel</button>
+<button (click)="reset()">reset</button>
