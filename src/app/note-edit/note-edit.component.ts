@@ -35,15 +35,14 @@ export class NoteEditComponent implements OnInit {
     this.edit = new Note
     this._NoteListService.visible = false
   }
-  updateSection(){
-    this.edit = this._NoteListService.edit
-    this.visible = this._NoteListService.visible
-    this.default = this.edit.noteBody
-  }
+  // updateSection(){
+  //   this.edit = this._NoteListService.edit
+  //   this.visible = this._NoteListService.visible
+  //   this.default = this.edit.noteBody
+  // }
   cancel(){
     this._NoteListService.edit = new Note
     this.newNote = new Note
     this._NoteListService.visible = false
-
   }
 }

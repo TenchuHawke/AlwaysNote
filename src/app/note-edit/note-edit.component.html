@@ -1,10 +1,15 @@
-<br> errors: {{ noteBodyEditErr?.errors | json }}<br>
+<h3>Edit existing message:</h3>
+<div *ngIf="noteBodyErr?.errors">
+    <p>Errors: {{ noteBodyEditErr?.errors | json }}</p>
+</div>
+
 
 <form (submit)="submitChange()" #formData="ngForm">
     <label for="noteBody">Note:</label>
     <input type="text" name="noteBody" required minlength="4" maxlength="200" [(ngModel)]="newNote.noteBody" #noteBodyEditErr="ngModel">
-    <button type=" submit " [disabled]="!formData.form.valid ">Submit</button>
+    <button (click)="submitChange()" [disabled]=" !formData.form.valid ">Submit</button>
+
+    <br><br>
+    <button (click)="cancel() ">Cancel</button>
+    <button type="submit">Using Submit interrupt...</button>
 </form>
-<br>
-<button (click)="cancel()">Cancel</button>
-<button (click)="reset()">reset</button>
